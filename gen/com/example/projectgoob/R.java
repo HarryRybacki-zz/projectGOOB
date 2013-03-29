@@ -25,22 +25,23 @@ public final class R {
         public static final int icon_add=0x7f020001;
         public static final int icon_cancel=0x7f020002;
         public static final int icon_modify=0x7f020003;
-        public static final int icon_save=0x7f020004;
+        public static final int icon_refresh=0x7f020004;
+        public static final int icon_save=0x7f020005;
     }
     public static final class id {
         public static final int InnerRelativeLayout=0x7f090000;
         public static final int action_settings=0x7f09000e;
-        public static final int add_button=0x7f090004;
-        public static final int analogClock1=0x7f090005;
-        public static final int answer_Button=0x7f090008;
+        public static final int add_button=0x7f090005;
+        public static final int analogClock=0x7f090004;
+        public static final int answer_Button=0x7f09000c;
         public static final int answer_message=0x7f090007;
-        public static final int cancel_button=0x7f090002;
+        public static final int cancel_button=0x7f090003;
         public static final int generate_Button=0x7f090009;
-        public static final int mult_num=0x7f09000d;
-        public static final int mult_view=0x7f09000c;
+        public static final int mult_num=0x7f09000b;
+        public static final int mult_view=0x7f090008;
         public static final int problem_text=0x7f090006;
-        public static final int save_button=0x7f090003;
-        public static final int score_number=0x7f09000b;
+        public static final int save_button=0x7f090002;
+        public static final int score_number=0x7f09000d;
         public static final int score_view=0x7f09000a;
         public static final int timepicker=0x7f090001;
     }
@@ -82,26 +83,19 @@ public final class R {
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
 
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
- API 11 theme customizations can go here. 
 
         Base application theme for API 14+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int timePicker=0x7f070002;
     }
 }

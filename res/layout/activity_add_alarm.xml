@@ -8,41 +8,59 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AddAlarmActivity" 
-    android:background="#efefef" >
+    android:background="#000000"
+    android:textColor="#ffffff" >
 
     <RelativeLayout 
         android:id="@+id/InnerRelativeLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:textColor="#ffffff" >
     
     <TimePicker
         android:id="@+id/timepicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:focusable="false" />
-    
-    <ImageButton
-     	android:id="@+id/cancel_button" 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/icon_cancel"
-        android:layout_alignParentBottom="true" 
-        android:layout_centerInParent="true"
-        android:onClick="finish"
-         />
-        
+        android:layout_above="@+id/save_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:focusable="false" 
+        android:textColor="#ffffff"
+        style="@style/timePicker"
+        android:textColorPrimary="#ffffff"
+        android:textColorSecondary="#ffffff" 
+        android:editTextColor="#ffffff" 
+        />
+
      <ImageButton
-    	android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/icon_save"
-        android:layout_marginRight="30dip"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/cancel_button"
-        android:layout_centerInParent="true"
-        android:onClick="saveAlarm"
-         />
+         android:id="@+id/save_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="38dp"
+         android:background="@drawable/icon_save"
+         android:minHeight="80dip"
+         android:minWidth="80dip"
+         android:onClick="saveAlarm" />
+
+     <ImageButton
+         android:id="@+id/cancel_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_centerVertical="true"
+         android:layout_marginRight="17dp"
+         android:layout_toLeftOf="@+id/save_button"
+         android:background="@drawable/icon_cancel"
+         android:minHeight="80dip"
+         android:minWidth="80dip"
+         android:onClick="finish" />
      
      </RelativeLayout>
 

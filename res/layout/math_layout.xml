@@ -2,61 +2,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".MathActivity" >
+    android:background="#000000"
+    tools:context=".MathActivity"
+    android:padding="10dip" >
 
     <TextView
         android:id="@+id/problem_text"
         style="@android:style/TextAppearance.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
         android:text="@string/math_problem" />
+
     <EditText
         android:id="@+id/answer_message"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/problem_text"
-        android:inputType="numberSigned"
-        android:hint="@string/answer_here"/>
-    <Button
-        android:id="@+id/answer_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/answer_message"
-        android:layout_alignParentRight="true"
-        android:text="@string/answer"/>
-    <Button
-        android:id="@+id/generate_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/answer_message"
-        android:layout_toLeftOf="@id/answer_Button"
-        android:text="@string/generate"/>
-    <TextView
-        android:id="@+id/score_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/generate_Button" 
-        android:layout_alignParentLeft="true" 
-        android:text="@string/scoreField"/>
-    <TextView
-        android:id="@+id/score_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/generate_Button" 
-        android:layout_toRightOf="@id/score_view" 
-        android:text="@string/scoreNum"/>
+        android:gravity="center"
+        android:hint="@string/answer_here"
+        android:inputType="numberSigned" />
+
     <TextView
         android:id="@+id/mult_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/score_view" 
-        android:layout_alignParentLeft="true" 
-        android:text="@string/multField"/>
+        android:layout_alignBottom="@+id/generate_Button"
+        android:layout_alignParentLeft="true"
+        android:text="@string/multField" />
+
+    <TextView
+        android:id="@+id/score_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mult_view"
+        android:layout_alignParentLeft="true"
+        android:text="@string/scoreField" />
+
     <TextView
         android:id="@+id/mult_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/score_number" 
-        android:layout_toRightOf="@id/mult_view" 
-        android:text="@string/multNum"/>
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/mult_view"
+        android:text="@string/multNum" />
+
+    <ImageButton
+        android:id="@+id/generate_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/answer_Button"
+        android:background="@drawable/icon_refresh"
+        android:minHeight="80dip"
+        android:minWidth="80dip" 
+        android:contentDescription="@string/generate"
+        android:onClick="generate" />
+
+    <ImageButton
+        android:id="@+id/answer_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/icon_save"
+        android:minHeight="80dip"
+        android:minWidth="80dip"
+        android:contentDescription="@string/answer"
+        android:onClick="answer" />
+
+    <TextView
+        android:id="@+id/score_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/score_view"
+        android:layout_alignBottom="@+id/score_view"
+        android:layout_toRightOf="@+id/score_view"
+        android:text="@string/scoreNum" />
+
 </RelativeLayout>
