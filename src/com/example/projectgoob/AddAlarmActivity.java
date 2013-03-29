@@ -5,7 +5,9 @@ import java.util.Calendar;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -59,10 +61,21 @@ public class AddAlarmActivity extends Activity {
 
 		//Tell the alarm manager when to run the service
 		//RTC_WAKEUP wakes up device if it is asleep when alarm is triggered
-		//INTERVAL_FIFTEEN_MINUTES is how long the alarm will wait until it is repeated
 		alarmManager.set(AlarmManager.RTC_WAKEUP,
 		AlarmCal.getTimeInMillis(), 
 		pendingAlarmIntent);
+		new AlertDialog.Builder(AddAlarmActivity.this).setMessage("Alarm Set for: "+tp.getCurrentHour()+":"+tp.getCurrentMinute())
+		.setPositiveButton("OK",new DialogInterface.OnClickListener(){
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+
+			} 
+
+	}).create().show();
+		
+		
 		finish();
 	}
 

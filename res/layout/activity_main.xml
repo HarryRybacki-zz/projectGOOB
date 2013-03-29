@@ -16,6 +16,7 @@
         android:layout_alignParentBottom="true"
          >
          
+         <!--
      <ImageButton
      	android:id="@+id/modify_button" 
         android:layout_width="wrap_content"
@@ -23,18 +24,24 @@
         android:background="@drawable/icon_modify"
         android:layout_alignParentBottom="true" 
         android:layout_centerInParent="true"
-         />
+         /> -->
         
      <ImageButton
     	android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/icon_add"
-        android:layout_marginRight="30dip"
+        android:background="@drawable/icon_modify"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/modify_button"
         android:layout_centerInParent="true"
         android:onClick="addAlarm" />
+
+     <AnalogClock
+         android:id="@+id/analogClock1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="70dp" />
         
 </RelativeLayout>
 </RelativeLayout>

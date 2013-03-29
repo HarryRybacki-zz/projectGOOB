@@ -1,18 +1,24 @@
 package com.example.projectgoob;
 
+import java.util.Calendar;
 import java.util.Random;
 
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MathActivity extends Activity {
 
@@ -21,6 +27,7 @@ public class MathActivity extends Activity {
 		TextView problem;
 		TextView scoreNum;
 		TextView multNum;
+		MediaPlayer player;
 		//declare text for answer
 		EditText answer;
 		//declare buttons for action listeners
@@ -162,6 +169,11 @@ public class MathActivity extends Activity {
 	        generateButton = (Button)findViewById(R.id.generate_Button);
 	        scoreNum = (TextView)findViewById(R.id.score_number);
 	        multNum = (TextView)findViewById(R.id.mult_num);  
+	        
+	        
+			player=MediaPlayer.create(MathActivity.this, R.raw.song);
+			player.setLooping(true);
+	        player.start();
 	        //set on click listener for generate button
 	        generateButton.setOnClickListener(new View.OnClickListener(){
 
@@ -169,6 +181,7 @@ public class MathActivity extends Activity {
 				public void onClick(View v) {
 					// generate numbers on click of generate button
 					problem.setText(generateCompleteProblem());
+					player.stop();
 
 				}
 
@@ -178,6 +191,8 @@ public class MathActivity extends Activity {
 
 				@Override
 				public void onClick(View v) {
+					// TODO: Check for empty submissions
+					// TODO: Doesn't work, implement.
 					// pull in user input from text field and change to int for checking
 					if(answer.getText().length()>3){
 						//if user enters in a huge number, or a number greater than the largest possible answer (20*20) automatically wrong
@@ -195,17 +210,61 @@ public class MathActivity extends Activity {
 					uAnswer = Integer.parseInt(answer.getText().toString());
 					 if(isCorrect(uAnswer)){
 						//create dialog box to show result
-						new AlertDialog.Builder(MathActivity.this).setMessage("Correct!")
-						.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+						//new AlertDialog.Builder(MathActivity.this).setMessage("Correct!")
+						//.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
+							//@Override
+							//public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+
+							//}
+
+
+						//}).create().show();
+						 final String[] options = {"Snooze", "Dismiss","More"};
+						 AlertDialog.Builder ab = new AlertDialog.Builder(MathActivity.this);
+						 ab.setTitle("Correct Answer!");
+						 ab.setItems(options, new DialogInterface.OnClickListener() {
+							
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								// TODO Auto-generated method stub
+								if(which==0)
+								{
+									//create alarm intent 
+									Intent alarmIntent = new Intent(getApplicationContext(), MyAlarmService.class);
+//									create pending alarm intent to link to service (what does the waiting)
+									PendingIntent pendingAlarmIntent = PendingIntent.getService(getApplicationContext(), 
+											1, alarmIntent, 0);
 
+									//create Alarm manager to let android system know about the alarm
+									AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+									//Tell the alarm manager when to run the service
+									//RTC_WAKEUP wakes up device if it is asleep when alarm is triggered
+									//INTERVAL_FIFTEEN_MINUTES is how long the alarm will wait until it is repeated
+									
+									Calendar rightNow = Calendar.getInstance();
+									rightNow.setTimeInMillis(System.currentTimeMillis());
+									
+									
+									alarmManager.set(AlarmManager.RTC_WAKEUP,
+										rightNow.getTimeInMillis()+600000, 
+										pendingAlarmIntent);
+									
+									finish();
+								}
+								if(which==1)
+								{
+									finish();
+								}
+								if(which==2)
+								{
+								}
+								
 							}
-
-
-						}).create().show();
+						});
+						 ab.show();
 						//if user is correct, clear answer field, increment number correct
 						//calculate multiplier based on number correct, then display multiplier
 						//add and display total score, then auto-generate next problem
@@ -251,6 +310,9 @@ public class MathActivity extends Activity {
 	        getMenuInflater().inflate(R.menu.math, menu);
 	        return true;
 	    }
+	    
+	    
+	    
 
 
 
