@@ -206,8 +206,10 @@ public class MathActivity extends Activity {
 							AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
 
 							//Tell the alarm manager when to run the service
-							//RTC_WAKEUP wakes up device if it is asleep when alarm is triggered
-							//INTERVAL_FIFTEEN_MINUTES is how long the alarm will wait until it is repeated
+							//Create calendar object, set its time to current system time
+							//Set android alarm system to trigger at 600,000ms (10 minutes)
+							//plus the current Time
+	
 							
 							Calendar rightNow = Calendar.getInstance();
 							rightNow.setTimeInMillis(System.currentTimeMillis());
