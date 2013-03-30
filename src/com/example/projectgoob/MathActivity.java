@@ -158,6 +158,7 @@ public class MathActivity extends Activity {
 		
 		public void generate(View v)
 		{
+			//generate a new problem and stop alarm sound
 			problem.setText(generateCompleteProblem());
 			player.stop();
 		}
@@ -280,9 +281,11 @@ public class MathActivity extends Activity {
 	        scoreNum = (TextView)findViewById(R.id.score_number);
 	        multNum = (TextView)findViewById(R.id.mult_num);  
 
-	        
+	        	//set up media player for alarm sound
 			player=MediaPlayer.create(MathActivity.this, R.raw.song);
+			//set sound to loop as long as alarm is sounding
 			player.setLooping(true);
+			//start alarm sound
 	        player.start();
 	    }
 
