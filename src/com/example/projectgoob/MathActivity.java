@@ -182,18 +182,8 @@ public class MathActivity extends Activity {
 			}
 			uAnswer = Integer.parseInt(answer.getText().toString());
 			 if(isCorrect(uAnswer)){
-				//create dialog box to show result
-				//new AlertDialog.Builder(MathActivity.this).setMessage("Correct!")
-				//.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-					//@Override
-					//public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-
-					//}
-
-
-				//}).create().show();
+				//create dialog box with snooze, dismiss, and more as options
+				//string[] options holds button labels
 				 final String[] options = {"Snooze", "Dismiss","More"};
 				 AlertDialog.Builder ab = new AlertDialog.Builder(MathActivity.this);
 				 ab.setTitle("Correct Answer!");
@@ -201,7 +191,8 @@ public class MathActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
+						// which denotes which index index in the array of button labels
+						//while==0 is snooze
 						if(which==0)
 						{
 							//create alarm intent 
@@ -227,10 +218,12 @@ public class MathActivity extends Activity {
 							
 							finish();
 						}
+						//which ==1 is dismiss
 						if(which==1)
 						{
 							finish();
 						}
+						//which==2 is more, just removes dialog box
 						if(which==2)
 						{
 						}
