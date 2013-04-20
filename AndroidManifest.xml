@@ -26,11 +26,21 @@
             android:name="com.example.projectgoob.AddAlarmActivity"
             android:label="@string/title_activity_add_alarm" >
         </activity>
+
         <service android:name="com.example.projectgoob.MyAlarmService" >
         </service>
+
         <activity
             android:name="com.example.projectgoob.MathActivity"
             android:label="@string/title_activity_math" >
+        </activity>
+        <activity
+            android:name="com.example.projectgoob.AlarmList"
+            android:label="@string/title_activity_alarm_list" >
+        </activity>
+        <activity
+            android:name="com.example.projectgoob.AlarmListViewer"
+            android:label="@string/title_activity_alarm_list_viewer" >
         </activity>
     </application>
 
