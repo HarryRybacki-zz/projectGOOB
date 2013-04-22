@@ -1,4 +1,3 @@
-//define package
 package com.example.projectgoob;
 
 // android imports

@@ -30,36 +30,30 @@ public final class R {
     }
     public static final class id {
         public static final int InnerRelativeLayout=0x7f090000;
-        public static final int action_settings=0x7f090010;
+        public static final int action_settings=0x7f09000e;
         public static final int add_button=0x7f090005;
         public static final int analogClock=0x7f090004;
-        public static final int answer_Button=0x7f09000e;
-        public static final int answer_message=0x7f090009;
+        public static final int answer_Button=0x7f09000c;
+        public static final int answer_message=0x7f090007;
         public static final int cancel_button=0x7f090003;
-        public static final int generate_Button=0x7f09000b;
-        public static final int list_view_item=0x7f090006;
-        public static final int listview=0x7f090007;
-        public static final int mult_num=0x7f09000d;
-        public static final int mult_view=0x7f09000a;
-        public static final int problem_text=0x7f090008;
+        public static final int generate_Button=0x7f090009;
+        public static final int mult_num=0x7f09000b;
+        public static final int mult_view=0x7f090008;
+        public static final int problem_text=0x7f090006;
         public static final int save_button=0x7f090002;
-        public static final int score_number=0x7f09000f;
-        public static final int score_view=0x7f09000c;
+        public static final int score_number=0x7f09000d;
+        public static final int score_view=0x7f09000a;
         public static final int timepicker=0x7f090001;
     }
     public static final class layout {
         public static final int activity_add_alarm=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int alarm_list_view=0x7f030002;
-        public static final int list_element=0x7f030003;
-        public static final int math_layout=0x7f030004;
+        public static final int math_layout=0x7f030002;
     }
     public static final class menu {
         public static final int add_alarm=0x7f080000;
-        public static final int alarm_list=0x7f080001;
-        public static final int alarm_list_viewer=0x7f080002;
-        public static final int main=0x7f080003;
-        public static final int math=0x7f080004;
+        public static final int main=0x7f080001;
+        public static final int math=0x7f080002;
     }
     public static final class raw {
         public static final int song=0x7f040000;
@@ -81,8 +75,6 @@ public final class R {
         public static final int scoreNum=0x7f06000e;
         public static final int show_message_title=0x7f060007;
         public static final int title_activity_add_alarm=0x7f060004;
-        public static final int title_activity_alarm_list=0x7f060011;
-        public static final int title_activity_alarm_list_viewer=0x7f060012;
         public static final int title_activity_math=0x7f060008;
     }
     public static final class style {
