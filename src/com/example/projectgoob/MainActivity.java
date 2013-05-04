@@ -29,10 +29,4 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(this, AddAlarmActivity.class);
     	startActivity(intent);
     }
-    
-    public void listAlarms(View v)
-    {
-    	Intent intent = new Intent(this, ListAlarmsActivity.class);
-    	startActivity(intent);
-    }
 }
