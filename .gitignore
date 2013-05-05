@@ -1,3 +1,6 @@
 *.class
 *.swp
 *.jar
+*.dex
+*.ap_
+bin/*
