@@ -11,6 +11,7 @@
             backward-compatibility can go here.
         -->
          <item name="android:textColor">#ffffff</item>
+         <item name="android:background">@drawable/background</item>
     </style>
 
     <!-- Application theme. -->
