@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:background="#000000"
     tools:context=".MathActivity"
-    android:padding="10dip" >
+    android:padding="10dip" 
+     >
 
     <TextView
         android:id="@+id/problem_text"
