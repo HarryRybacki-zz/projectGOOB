@@ -16,19 +16,45 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TimePicker;
 
-// activity for setting, adding, and implementing a new alarm
+/**
+ * class representing the edit alarm view for the app
+ * 
+ * Class handles user creating and setting alarm then being
+ * added to the android alarm manager service
+ * 
+ * @author 	PBR Code
+ * @version 1.0
+ * @since 	5 May 2013
+ *
+ */
 public class AddAlarmActivity extends Activity {
 	
 	TimePicker tp;
 
-        // set layout for the activity
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 * 
+	 * android class constructor function used for setting up app views correctly
+	 * 
+	 * @name 	onCreate
+	 * @param	Bundle 
+	 * @retun	void
+	 */ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_alarm);
 	}
 
-        // set menu
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 * 
+	 * android menu constructor used for setting up app menus correctly
+	 * 
+	 * @name	onCreateOptionsMenu
+	 * @param	Menu
+	 * @return	boolean
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// inflate the menu; this adds items to the action bar if it is present.
@@ -36,13 +62,25 @@ public class AddAlarmActivity extends Activity {
 		return true;
 	}
 	
-	// complete the actvity
+	/**
+	 * closes out activity and hands application back to prior activity
+	 * 
+	 * @name	finish
+	 * @param 	View
+	 * @return	void
+	 */
 	public void finish(View v)
 	{
 		finish();
 	}
 	
-	// add the alarm to the OS's pending intents
+	/**
+	 * creates an alarm intent and adds it to the android alarm manager
+	 * 
+	 * @name	saveAlarm
+	 * @param 	View
+	 * @return	void
+	 */
 	public void saveAlarm(View v)
 	{
 		tp = (TimePicker) findViewById(R.id.timepicker);

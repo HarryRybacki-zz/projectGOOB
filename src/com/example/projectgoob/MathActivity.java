@@ -18,6 +18,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * class representing a math challenge initiated by an alarm sequence
+ * 
+ * @author 	PBR Code
+ * @version 1.0
+ * @since 	5 May 2013
+ */
 public class MathActivity extends Activity {
 
 	// declare UI components
@@ -42,19 +49,33 @@ public class MathActivity extends Activity {
 	static int uAnswer, cAnswer, difficulty = 20;
 	static int gcd = 0;
 
-	// generate operand 1
+	/**
+	 * @name	generateOp1
+	 * @param	none
+	 * @return	integer representing first operand
+	 */
 	public static int generateOp1() {
 		int firstOperator = generator.nextInt(difficulty) + 1;
 		return firstOperator;
 	}
 
-	// generate operand 2
+	/**
+	 * @name 	generateOp2
+	 * @param	none
+	 * @return 	integer representing second operand
+	 */
 	public static int generateOp2() {
 		int secondOperator = generator.nextInt(difficulty) + 1;
 		return secondOperator;
 	}
 
-	// method to return whether use has the correct answer
+	/**
+	 * returns true if user's answer is correct
+	 * 
+	 * @name	isCorrect
+	 * @param 	integer representing user's answer
+	 * @return 	true if correct else false
+	 */
 	public static boolean isCorrect(int userAnswer) {
 		if (userAnswer == cAnswer) {
 			return true;
@@ -62,7 +83,14 @@ public class MathActivity extends Activity {
 			return false;
 	}
 
-	// gcd method for clean division
+	/**
+	 * returns the greatest common divisor between two integers
+	 * 
+	 * @name	GCD
+	 * @param 	x -- first integer
+	 * @param 	y -- second integer
+	 * @return 	int
+	 */
 	public static int GCD(int x, int y) {
 		if (y == 0) {
 			return x;
@@ -71,14 +99,26 @@ public class MathActivity extends Activity {
 		}
 	}
 
-	// generate an index 0-3 for choice of symbol
+	/**
+	 * returns pointer for operator array index
+	 * 
+	 * @name	generateSymbolChoice
+	 * @param	none
+	 * @return 	int
+	 */
 	public static int generateSymbolChoice() {
 		int newSymbol = generator.nextInt(symbols.length);
 		return newSymbol;
 
 	}
 
-	// add to score, point values or based on what kind of question
+	/**
+	 * adds score based on value of mathematical operator
+	 * 
+	 * @name	addScore
+	 * @param 	symbol
+	 * @return	void
+	 */
 	static void addScore(String symbol) {
 		if (symbol.equals("+") || symbol.equals("-")) {
 			pointValue = 2.0;
@@ -88,8 +128,14 @@ public class MathActivity extends Activity {
 		score += pointValue * multiplier;
 	}
 
-	// calculate multiplier based on number correct
-	static void calcMult(int numCorrect) {
+	/**
+	 * calculates the multiplier based on the number of correct answers from user
+	 * 
+	 * @name 	calcMult
+	 * @param 	numCorrect
+	 * @return	void
+	 */
+		static void calcMult(int numCorrect) {
 		if (numCorrect >= 5) {
 			multiplier += .5;
 		} else if (numCorrect <= 2) {
@@ -97,13 +143,26 @@ public class MathActivity extends Activity {
 		}
 	}
 
+	/**
+	 * adjusts problem difficulty based on multiplier
+	 * 
+	 * @name 	incDifficulty
+	 * @param	none
+	 * @return	void
+	 */
 	static void incDifficulty() {
 		if (multiplier > 3.0) {
 			difficulty += 5;
 		}
 	}
 
-	// generates entire math problem with both operands and operator symbol
+	/**
+	 * generates an arithmetic problem for the user to complete
+	 * 
+	 * @name	generateCompleteProblem
+	 * @param	none
+	 * @return	String representation of problem
+	 */
 	static String generateCompleteProblem() {
 		// generate operators
 		op1 = generateOp1();
@@ -152,13 +211,29 @@ public class MathActivity extends Activity {
 		return fullOperation;
 	}
 
+	/**
+	 * onClick response to user selecting 'generate problem' button
+	 * 
+	 * @name	generate
+	 * @param 	View - android view object
+	 * @return	void
+	 */
 	public void generate(View v) {
 		// generate a new problem and stop alarm sound
 		problem.setText(generateCompleteProblem());
 		player.stop();
 	}
 
-	// function for handling when user clicks 'answer' button
+	/**
+	 * onClick response to user selecting 'answer problem' button
+	 * 
+	 * This method handles catching improper inputs, determining if user's input is correct,
+	 * and informing the user with corresponding options.
+	 * 
+	 * @name	answer
+	 * @param 	View - android view object
+	 * @return	void
+	 */
 	public void answer(View v) {
 		// check if user has generated a problem prior to trying to answer it
 		if (problem.getText().equals("Click Generate to Start!")) {
@@ -291,6 +366,15 @@ public class MathActivity extends Activity {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 * 
+	 * android class constructor function used for setting up app views correctly
+	 * 
+	 * @name 	onCreate
+	 * @param	Bundle 
+	 * @return	void
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -312,6 +396,15 @@ public class MathActivity extends Activity {
 		player.start();
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 * 
+	 * android menu constructor used for setting up app menus correctly
+	 * 
+	 * @name	onCreateOptionsMenu
+	 * @param	Menu
+	 * @return	boolean
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
